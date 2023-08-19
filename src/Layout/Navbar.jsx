@@ -26,7 +26,9 @@ const Navbar = ({ handleDrawerToggle }) => {
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
-                    bgcolor: '#f9faff'
+                    bgcolor: '#f9faff',
+                    boxShadow: 'none',
+                    borderBottom: '1px solid #0000001f'
                 }}
             >
                 <Toolbar>

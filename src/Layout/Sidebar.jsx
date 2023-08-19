@@ -65,7 +65,7 @@ function Sidebar({ handleDrawerToggle, mobileOpen }) {
     ]
     const drawer = (
         <div style={{ paddingTop: '5px', paddingLeft: '10px', paddingRight: '10px', backgroundColor: "#f9faff", height: "100%", borderColor: "#f9faff" }}>
-            <Box mb={3} sx={{ height: '3.70rem', borderBottom: "1px solid #000" }}>
+            <Box mb={3} sx={{ height: '3.70rem', borderBottom: "1px solid #0000001f" }}>
                 <Box sx={{ width: '100%', height: '3.25rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: "0.5rem" }}>
                     <img src={logo} alt="logo" width={45} />
                     <Typography color="#6d2ae2" variant='h6' sx={{ fontWeight: "bold" }}>
