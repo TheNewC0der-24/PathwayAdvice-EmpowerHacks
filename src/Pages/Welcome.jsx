@@ -14,7 +14,6 @@ import logo from '../assets/logoDark.png';
 const TEXTS = ['First-Gen', 'Low-Income'];
 
 const Welcome = () => {
-
     const navigate = useNavigate();
 
     const [index, setIndex] = useState(0);
