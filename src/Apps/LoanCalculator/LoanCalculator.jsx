@@ -10,13 +10,13 @@ const LoanCalculator = () => {
             bgcolor: "#F3F0FF",
             borderRadius: "4px",
             display: "grid",
-            placeItems: "center",
+            placeItems: "center"
         }}>
-            <Typography sx={{ fontWeight: "bold" }} variant="subtitle1">
+            <Typography sx={{ fontWeight: "bold" }} align='center' variant="subtitle1">
                 STAY TUNED
             </Typography>
 
-            <Typography mt={2} variant="h5">
+            <Typography mt={2} align='center' variant="h5">
                 Loan Calculator Coming Soon!
             </Typography>
 
@@ -24,7 +24,7 @@ const LoanCalculator = () => {
                 We are a small team of developers working on this project in our free time. We are working hard to bring you this feature as soon as possible.
             </Typography>
 
-            <Typography mt={2} sx={{ fontWeight: "bold" }} color="#6d2ae2" variant="caption">
+            <Typography mt={2} sx={{ fontWeight: "bold" }} align='center' color="#6d2ae2" variant="caption">
                 #underconstruction
             </Typography>
         </Box>
