@@ -6,6 +6,10 @@ import Dashboard from '../Components/Dashboard/Dashboard';
 import Tools from '../Components/Tools/Tools';
 import Resources from '../Components/Resources/Resources';
 import OurTeam from '../Components/OurTeam/OurTeam';
+import MentalHealth from '../Pages/MentalHealth';
+import StudyMaterials from '../Pages/StudyMaterials';
+import FinancialAid from '../Pages/FinancialAid';
+import CareerGuidance from '../Pages/CareerGuidance';
 
 const Router = () => {
 
@@ -25,6 +29,22 @@ const Router = () => {
                 { path: "/PathwayAdvice/resources", element: <Resources /> },
                 { path: "/PathwayAdvice/our-team", element: <OurTeam /> },
             ]
+        },
+        {
+            path: "/mental-health",
+            element: <MentalHealth />
+        },
+        {
+            path: "/study-materials",
+            element: <StudyMaterials />
+        },
+        {
+            path: "/financial-aid",
+            element: <FinancialAid />
+        },
+        {
+            path: "/career-guidance",
+            element: <CareerGuidance />
         },
         {
             path: '*',
