@@ -203,7 +203,15 @@ const OurTeam = () => {
                                 title="Hala Abdelhamid"
                                 subheader="UI/UX Designer"
                             />
-                            <CardContent>
+                            <CardContent sx={{
+                                height: "200px",
+                                overflow: "auto",
+                            }}>
+                                <Typography gutterBottom variant="subtitle1">
+                                    Hello. My name is Hala Abdelhamid. I was born in Cairo, Egypt. I now reside in Sharjah, the United Arab Emirates. I am 17 years old and I am a high school student and a STEM student. Although my main focus revolves around mathematics and physics - due to my humongous interest in astrophysics - I still believe that technology is a basic tool that needs to be learned by everyone as it is considered a skill today and a base tomorrow. I aim to increase my knowledge by collaborating with my peers in multiple Hackathons to learn more about coding, designing, and web development.
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
                                 <Box
                                     sx={{
                                         display: "flex",
@@ -253,7 +261,7 @@ const OurTeam = () => {
                                         <BiLogoGmail />
                                     </IconButton>
                                 </Box>
-                            </CardContent>
+                            </CardActions>
                         </Card>
                     </Grid>
 
@@ -262,12 +270,42 @@ const OurTeam = () => {
                             <CardHeader
                                 avatar={
                                     <Avatar sx={{ bgcolor: "#6d2ae2" }}>
-                                        O
+                                        G
                                     </Avatar>
                                 }
-                                title="Orangina"
+                                title="Gina Lim"
                                 subheader="Researcher"
                             />
+                            <CardContent sx={{
+                                height: "200px",
+                                overflow: "auto",
+                            }}>
+                                <Typography gutterBottom variant="subtitle1">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores molestias eaque repellat iure architecto esse totam ut, quaerat veniam eligendi facilis dicta? Culpa maiores repellendus molestiae quisquam veritatis, pariatur minima iure est dolorum saepe iusto accusantium aliquid nobis nam veniam?
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: '0.5rem',
+                                    }}
+                                >
+                                    <IconButton
+                                        href="mailto:oneredlelmon@gmail.com"
+                                        sx={{
+                                            bgcolor: "#dfd8fd",
+                                            color: "#6d2ae2",
+                                            '&:hover': {
+                                                color: "#6d2ae2",
+                                            },
+                                        }}
+                                    >
+                                        <BiLogoGmail />
+                                    </IconButton>
+                                </Box>
+                            </CardActions>
                         </Card>
                     </Grid>
                 </Grid>
