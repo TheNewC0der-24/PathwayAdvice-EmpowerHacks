@@ -135,35 +135,38 @@ const BudgetApp = () => {
                 </Grid>
             </Box>
 
-            <Box mt={3} sx={{
-                width: { xs: "100%", sm: "100%", md: "50%", lg: "30%" }
-            }}>
-                <Card className={classNames.join(" ")} sx={{
-                    border: "1px solid #f8f9fa",
-                    color: "#0e1313",
-                }} elevation={0}>
-                    <CardHeader
-                        title="Total"
-                        action={
-                            <Typography variant="h6">
-                                {currencyFormatter.format(totalAmount)} <span style={{ fontSize: "15px", opacity: "0.7" }}>/ {currencyFormatter.format(totalMax)}</span>
-                            </Typography>
-                        }
-                    />
-                    <CardContent>
-                        <LinearProgress
-                            variant="determinate"
-                            color={getProgressBarVariant(totalAmount, totalMax)}
-                            value={totalAmount / totalMax * 100}
-                            sx={{
-                                backgroundColor: totalAmount > totalMax && "#d32f2f",
-                                height: "10px",
-                                borderRadius: "5px",
-                            }}
+            {
+                totalAmount > 0 &&
+                <Box mt={3} sx={{
+                    width: { xs: "100%", sm: "100%", md: "50%", lg: "30%" }
+                }}>
+                    <Card className={classNames.join(" ")} sx={{
+                        border: "1px solid #f8f9fa",
+                        color: "#0e1313",
+                    }} elevation={0}>
+                        <CardHeader
+                            title="Total"
+                            action={
+                                <Typography variant="h6">
+                                    {currencyFormatter.format(totalAmount)} <span style={{ fontSize: "15px", opacity: "0.7" }}>/ {currencyFormatter.format(totalMax)}</span>
+                                </Typography>
+                            }
                         />
-                    </CardContent>
-                </Card>
-            </Box>
+                        <CardContent>
+                            <LinearProgress
+                                variant="determinate"
+                                color={getProgressBarVariant(totalAmount, totalMax)}
+                                value={totalAmount / totalMax * 100}
+                                sx={{
+                                    backgroundColor: totalAmount > totalMax && "#d32f2f",
+                                    height: "10px",
+                                    borderRadius: "5px",
+                                }}
+                            />
+                        </CardContent>
+                    </Card>
+                </Box>
+            }
 
             <AddBudgetModal open={openBudget} handleClose={handleCloseBudget} />
             <AddExpenseModal open={openExpense} handleClose={handleCloseExpense} />
