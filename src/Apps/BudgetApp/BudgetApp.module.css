@@ -1,0 +1,9 @@
+.danger {
+    background-color: #FFEDEB !important;
+    border-color: #d32f2f !important;
+}
+
+.normal {
+    background-color: #f8f9fa !important;
+    border-color: #DCDFE4 !important;
+}
