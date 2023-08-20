@@ -113,6 +113,7 @@ const AddBudgetModal = ({ open, handleClose }) => {
                         }
                     }}
                     onClick={handleAdd}
+                    disabled={name === '' || max === ''}
                 >
                     Add
                 </Button>

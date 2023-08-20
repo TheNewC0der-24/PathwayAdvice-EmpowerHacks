@@ -105,6 +105,7 @@ const BudgetApp = () => {
                             }
                         }}
                             onClick={handleClickOpenExpense}
+                            disabled={budgets.length === 0}
                         >
                             Add Expense
                         </Button>
