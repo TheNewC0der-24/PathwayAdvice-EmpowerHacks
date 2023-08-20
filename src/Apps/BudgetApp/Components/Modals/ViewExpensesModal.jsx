@@ -125,17 +125,6 @@ const ViewExpensesModal = ({ open, handleClose, budgetId }) => {
                 >
                     Close
                 </Button>
-                <Button variant='contained'
-                    sx={{
-                        bgcolor: "#6d2ae2",
-                        color: "#fff",
-                        '&:hover': {
-                            bgcolor: "#6d2ae2",
-                        }
-                    }}
-                >
-                    Add
-                </Button>
             </DialogActions>
         </Dialog>
     )

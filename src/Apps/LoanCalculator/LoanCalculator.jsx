@@ -22,8 +22,8 @@ const LoanCalculator = () => {
             bgcolor: "#F3F0FF",
             borderRadius: "4px",
             display: "grid",
-            placeItems: "center",
-        }}>
+            placeItems: "center"
+        }}
             <Typography sx={{ fontWeight: "bold" }} variant="subtitle1">
                 Loan Calculator
             </Typography>

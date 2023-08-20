@@ -147,6 +147,7 @@ const AddExpenseModal = ({ open, handleClose, defaultBudgetId }) => {
                         }
                     }}
                     onClick={handleAdd}
+                    disabled={description === '' || amount === '' || budgetId === ''}
                 >
                     Add
                 </Button>

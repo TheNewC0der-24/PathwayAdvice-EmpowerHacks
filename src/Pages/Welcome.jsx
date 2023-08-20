@@ -1,54 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Typography, Container, Box } from '@mui/material';
+
+import TextTransition, { presets } from 'react-text-transition';
+
+import {
+    Box,
+    Button,
+    Typography
+} from '@mui/material';
+
+import logo from '../assets/logoDark.png';
+
+const TEXTS = ['First-Gen', 'Low-Income'];
 
 const Welcome = () => {
     const navigate = useNavigate();
 
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(
+            () => setIndex((index) => index + 1),
+            3000,
+        );
+        return () => clearTimeout(intervalId);
+    }, []);
+
     return (
-        <Container style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100vh',
-            backgroundImage: 'linear-gradient(to right, #6a11cb, #9c27b0)', // Purple gradient background
-        }}>
-            <Typography variant="h4" gutterBottom style={{ color: 'white' }}>
-                Welcome to the Student Pathway Support
-            </Typography>
-            <Typography variant="subtitle1" paragraph style={{ color: 'white' }}>
-                We're here to guide and support low-income students in their academic journey. Let's get started!
-            </Typography>
-            <Box mt={2} mb={4}>
-                <img 
-                    src="https://th.bing.com/th/id/OIP.N0akY_m_7kQ9l5fQUPKt_QHaE7?pid=ImgDet&rs=1" // Placeholder image, replace with your own
-                    alt="Supportive Image"
-                    style={{ borderRadius: '15px', boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.2)' }}
-                />
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: '5rem',
+                paddingBottom: '5rem',
+            }}
+        >
+            <Box>
+                <img src={logo} alt='Logo' width='200px' height='200px' />
             </Box>
-            <Box mt={2}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: '#8a2be2', // Light purple button
-                        color: 'white',
-                        boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.2)',
-                        transition: 'all 0.3s'
-                    }}
-                    size="large"
-                    onClick={() => {
-                        navigate('/PathwayAdvice');
-                        localStorage.setItem('start', true);
-                    }}
-                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                >
-                    Start Your Journey
-                </Button>
+            <Typography mb={1} variant='h3'>
+                PathwayAdvice
+            </Typography>
+
+            <Box mb={3} sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                gap: '0.5rem',
+            }}>
+                <Typography variant='h6'>
+                    Empowering
+                </Typography>
+                <Typography variant='h5' sx={{ color: '#6d2ae2', fontWeight: "bold" }}>
+                    <TextTransition springConfig={presets.wobbly}>{TEXTS[index % TEXTS.length]}</TextTransition>
+                </Typography>
+                <Typography variant='h6'>
+                    Students
+                </Typography>
             </Box>
-        </Container>
-    );
+            <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                sx={{
+                    bgcolor: "#6d2ae2",
+                    color: "#fff",
+                    '&:hover': {
+                        bgcolor: "#6d2ae2",
+                    }
+                }}
+                onClick={() => {
+                    navigate('/PathwayAdvice')
+                    localStorage.setItem('start', true)
+                }}
+            >
+                Start
+            </Button>
+        </Box>
+    )
 }
 
 export default Welcome;
