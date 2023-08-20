@@ -118,7 +118,10 @@ const Profile = () => {
                 </MenuItem>
                 <Divider sx={{ my: 1 }} />
 
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={() => {
+                    handleClose();
+                    navigate("/PathwayAdvice");
+                }} disableRipple>
                     <MdDashboardCustomize style={{ marginRight: "0.5rem", width: 24, height: 24 }} />
                     Dashboard
                 </MenuItem>
