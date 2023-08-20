@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
     Box,
     Typography,
@@ -11,14 +13,16 @@ import {
 } from '@mui/material';
 
 import { FaBook, FaUniversity, FaHandHoldingUsd, FaUserGraduate } from 'react-icons/fa';
+import { IoLayers } from 'react-icons/io5';
 
 const Resources = () => {
+
     return (
         <React.Fragment>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: '0.5rem' }}>
                     <Avatar variant="rounded" sx={{ color: "#6d2ae2", bgcolor: "#dfd8fd" }}>
-                        <FaBook />
+                        <IoLayers />
                     </Avatar>
                     <Typography variant='h5' sx={{ fontWeight: "bold" }} color="#6d2ae2">
                         Resources
@@ -32,11 +36,11 @@ const Resources = () => {
                 <Grid container spacing={2}>
                     <ResourceCard
                         icon={<FaUniversity />}
-                        title="Educational Institutions"
-                        description="Find information about universities, colleges, and other educational institutions."
+                        title="Mental Health"
+                        description="Find mental health resources and support groups to help you cope with stress and anxiety."
                         bgColor="#FFF7D6"
                         iconColor="#F5CD47"
-                        link="/educational-institutions"
+                        link="/mental-health"
                     />
                     <ResourceCard
                         icon={<FaBook />}
@@ -69,10 +73,16 @@ const Resources = () => {
 };
 
 const ResourceCard = ({ icon, title, description, bgColor, iconColor, link }) => {
+
+
+    const navigate = useNavigate();
+
     return (
         <Grid item lg={6} md={6} sm={12} xs={12}>
             <Card elevation={0} sx={{ bgcolor: bgColor, height: "100%" }}>
-                <CardActionArea href={link}>
+                <CardActionArea onClick={() => {
+                    navigate(link);
+                }}>
                     <CardContent>
                         <Avatar sx={{ bgcolor: iconColor }}>
                             {icon}
