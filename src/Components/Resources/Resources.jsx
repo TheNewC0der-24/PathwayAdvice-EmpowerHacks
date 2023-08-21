@@ -12,8 +12,9 @@ import {
     Divider
 } from '@mui/material';
 
-import { FaBook, FaUniversity, FaHandHoldingUsd, FaUserGraduate } from 'react-icons/fa';
+import { FaBook, FaHandHoldingUsd, FaUserGraduate } from 'react-icons/fa';
 import { IoLayers } from 'react-icons/io5';
+import { RiMentalHealthFill } from 'react-icons/ri';
 
 const Resources = () => {
 
@@ -35,35 +36,35 @@ const Resources = () => {
             <Box mt={3}>
                 <Grid container spacing={2}>
                     <ResourceCard
-                        icon={<FaUniversity />}
+                        icon={<RiMentalHealthFill />}
                         title="Mental Health"
                         description="Find mental health resources and support groups to help you cope with stress and anxiety."
-                        bgColor="#FFF7D6"
-                        iconColor="#F5CD47"
-                        link="/mental-health"
+                        bgColor="#FFF4E5"
+                        iconColor="#F18D13"
+                        link="/PathwayAdvice/mental-health"
                     />
                     <ResourceCard
                         icon={<FaBook />}
                         title="Study Materials"
                         description="Access study materials, textbooks, and online courses to enhance your knowledge."
-                        bgColor="#CCE0FF"
-                        iconColor="#1D7AFC"
+                        bgColor="#E3FAFC"
+                        iconColor="#37B4C3"
                         link="/study-materials"
                     />
                     <ResourceCard
                         icon={<FaHandHoldingUsd />}
                         title="Financial Aid"
                         description="Explore scholarships, grants, and other financial aid opportunities."
-                        bgColor="#FFEDEB"
-                        iconColor="#E34935"
+                        bgColor="#FFECF8"
+                        iconColor="#CD519D"
                         link="/financial-aid"
                     />
                     <ResourceCard
                         icon={<FaUserGraduate />}
                         title="Career Guidance"
                         description="Get guidance on career paths, internships, and job opportunities."
-                        bgColor="#DFFCF0"
-                        iconColor="#2ABB7F"
+                        bgColor="#EEFBDA"
+                        iconColor="#82B536"
                         link="/career-guidance"
                     />
                 </Grid>
@@ -78,7 +79,7 @@ const ResourceCard = ({ icon, title, description, bgColor, iconColor, link }) =>
     const navigate = useNavigate();
 
     return (
-        <Grid item lg={6} md={6} sm={12} xs={12}>
+        <Grid item lg={3} md={6} sm={12} xs={12}>
             <Card elevation={0} sx={{ bgcolor: bgColor, height: "100%" }}>
                 <CardActionArea onClick={() => {
                     navigate(link);

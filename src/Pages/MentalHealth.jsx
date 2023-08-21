@@ -1,62 +1,146 @@
+import { useState } from 'react';
+
 import {
     Box,
     Typography,
-    Button
+    Button,
+    Avatar,
+    Card,
+    CardHeader,
+    CardContent,
+    Tabs,
+    Tab,
 } from '@mui/material';
 
+import PropTypes from 'prop-types';
+
 import { useNavigate } from 'react-router';
+
+import { RiMentalHealthFill } from 'react-icons/ri';
+
+import AnxietyDiscordersTab from '../Components/MentalHealthTabs/AnxietyDiscordersTab';
+import ADHDTab from '../Components/MentalHealthTabs/ADHDTab';
+import OCDTab from '../Components/MentalHealthTabs/OCDTab';
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <Box
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box sx={{ p: 3, border: "1px solid #F18D13" }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </Box>
+    );
+}
+
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
 
 const MentalHealth = () => {
 
     const navigate = useNavigate();
 
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     return (
-        <Box
-            sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100vh",
-                textAlign: "center",
-            }}
+        <Card sx={{
+            bgcolor: "#FFF4E5",
+        }}
+            elevation={0}
         >
-            <Typography gutterBottom sx={{ fontWeight: "bold" }} variant="h5" color="#6d2ae2">
-                STAY TUNED
-            </Typography>
+            <CardHeader
+                avatar={
+                    <Avatar sx={{ bgcolor: "#F18D13" }}>
+                        <RiMentalHealthFill />
+                    </Avatar>
+                }
+                title="Combat the Mental Cancer"
+                subheader="#mental-health"
+                action={
+                    <Button
+                        size="small"
+                        sx={{
+                            backgroundColor: "#0e1313",
+                            color: "#fff",
+                            "&:hover": {
+                                backgroundColor: "#0e1313",
+                            }
+                        }}
+                        onClick={() => navigate('/PathwayAdvice/resources')}
+                    >
+                        Back
+                    </Button>
+                }
+            />
+            <CardContent>
+                <Box sx={{ width: '100%' }}>
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        sx={{
+                            backgroundColor: "#F18D13",
+                            color: "#fff",
+                            "&:hover": {
+                                backgroundColor: "#F18D13",
+                            },
+                            "& .MuiTabs-indicator": {
+                                backgroundColor: "#0e1313",
+                                height: "3px"
+                            },
+                            "& .MuiTab-root": {
+                                textTransform: "none",
+                                fontWeight: "bold",
+                                color: "#0e1313 !important",
+                                "&:hover": {
+                                    color: "#0e1313",
+                                },
+                            },
 
-            <Typography gutterBottom variant="h5">
-                Mental Health COMING SOON!!
-            </Typography>
+                        }}
+                    >
+                        <Tab label="Anxiety Discorders" {...a11yProps(0)} />
+                        <Tab label="ADHD" {...a11yProps(1)} />
+                        <Tab label="OCD" {...a11yProps(2)} />
+                    </Tabs>
+                </Box>
 
-            <Typography variant="h5" sx={{ width: "50%" }}>
-                We are a small and growing team with Great ideas.
-                We are working hard to bring this feature to you.
-            </Typography>
-
-            <Typography gutterBottom variant="h5">
-            </Typography>
-
-            <Typography mt={2} sx={{ fontWeight: "bold" }} color="#6d2ae2" variant="caption">
-                #underconstrunction
-            </Typography>
-
-            <Button
-                sx={{
-                    mt: 2,
-                    backgroundColor: "#0e1313",
-                    color: "#fff",
-                    "&:hover": {
-                        backgroundColor: "#0e1313",
-                    }
-                }}
-                variant="contained"
-                onClick={() => navigate('/PathwayAdvice/resources')}
-            >
-                Go Back
-            </Button>
-        </Box>
+                <TabPanel value={value} index={0}>
+                    <AnxietyDiscordersTab />
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <ADHDTab />
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <OCDTab />
+                </TabPanel>
+            </CardContent>
+        </Card>
     )
 }
 
-export default MentalHealth
+export default MentalHealth;
