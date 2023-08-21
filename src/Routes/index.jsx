@@ -10,6 +10,7 @@ import MentalHealth from '../Pages/MentalHealth';
 import StudyMaterials from '../Pages/StudyMaterials';
 import FinancialAid from '../Pages/FinancialAid';
 import CareerGuidance from '../Pages/CareerGuidance';
+import NotFound from '../NotFound/404NotFound';
 
 const Router = () => {
 
@@ -28,11 +29,8 @@ const Router = () => {
                 { path: "/PathwayAdvice/tools", element: <Tools /> },
                 { path: "/PathwayAdvice/resources", element: <Resources /> },
                 { path: "/PathwayAdvice/our-team", element: <OurTeam /> },
+                { path: "/PathwayAdvice/mental-health", element: <MentalHealth /> },
             ]
-        },
-        {
-            path: "/mental-health",
-            element: <MentalHealth />
         },
         {
             path: "/study-materials",
@@ -48,7 +46,7 @@ const Router = () => {
         },
         {
             path: '*',
-            element: <h1>Page Not Found</h1>
+            element: <NotFound />
         },
     ])
 }
