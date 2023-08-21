@@ -53,6 +53,11 @@ I have hosted on **Vercel**. So, accessible to everyone.
   <img src="https://github.com/TheNewC0der-24/PathwayAdvice-EmpowerHacks/blob/main/Preview/Preview-2.png" width="400">
 </p>
 
+## Application Walkthrough
+```
+https://www.youtube.com/embed/GQKE5Szvoy0?si=p3OeOkiKNkXBw0Yv
+```
+
 ## Link
 ```
 https://pathwayadvice.vercel.app/
